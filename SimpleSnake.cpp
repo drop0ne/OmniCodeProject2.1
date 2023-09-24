@@ -1,6 +1,4 @@
-#include <iostream>
-#include <conio.h>
-#include <Windows.h>
+#include "lib.h"
 
 class ErrorHandling {
 public:

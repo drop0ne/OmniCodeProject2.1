@@ -1,11 +1,7 @@
 // OmniCodeProject2.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include "lib.h"
 
-#include <iostream>
-#include <stdlib.h>
-#include <ctime>
-#include <chrono>
-#include "Simple Snake.cpp"
 
 using namespace std;
 
