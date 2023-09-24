@@ -1,44 +1,37 @@
-// OmniCodeProject2.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <ctime>
 #include <chrono>
 #include "Simple Snake.cpp"
 
-using namespace std;
-
 class consoleInterface {
 protected:
-    const string programName = "OmniCodeProject 2";
-    const string programVersion = "Version 0.11";
-    const string commandPrompt = " Please a Enter Command: ";
-    const string invalidCommand = " is not a valid Command!";
-    string userName = "User";
+    const std::string programName = "OmniCodeProject 2";
+    const std::string programVersion = "Version 0.11";
+    const std::string commandPrompt = " Please a Enter Command: ";
+    const std::string invalidCommand = " is not a valid Command!";
+    std::string userName = "User";
     char userInput;
     bool validCommandCheck = true;
 
     void drawHeaderMethod() {
         system("cls");
-        cout << programName;
-        cout << " ";
-        cout << programVersion;
-        cout << endl;
+        std::cout << programName;
+        std::cout << " ";
+        std::cout << programVersion;
+        std::cout << std::endl;
     }
 
-
     void userInputMethod() {
-        cout << endl << userName << commandPrompt;
-        cin >> userInput;
+        std::cout << std::endl << userName << commandPrompt;
+        std::cin >> userInput;
     }
 
     void invalidUserInputMethod() {
-        cout  << "[" << userInput  << "]" << invalidCommand;
+        std::cout << "[" << userInput << "]" << invalidCommand;
         validCommandCheck = true;
     }
 
-        
 public:
     void userInputInterface() {
         userInputMethod();
@@ -49,43 +42,36 @@ public:
     }
 
     void invalidUserInputInterface() {
-
         invalidUserInputMethod();
     }
 };
 
-
-class consolePrograms :public consoleInterface {
+class consolePrograms : public consoleInterface {
 private:
-    void welcomeScreenMethod()
-    {
-        if (validCommandCheck != false)
-        {
+    void welcomeScreenMethod() {
+        if (validCommandCheck != false) {
             system("cls");
             system("color 0F");
-            cout << endl << "Greetings!!!  Thank You for chosing " << programName << " " << programVersion;
-            cout << endl << endl;
-            cout << "My Name Is Jake D and this is my C++ program.  I am learning C/C++ and I am using this program to apply" << endl;
-            cout << "what I am learning as I learn it." << endl;
-            cout << "The main part of this program is an interface I built to showcase to programs I have written as I advance in my studies" << endl;
-            cout << "The next screen will ask you for your first and last name as well as your birth date.  I intend yo use this information" << endl;
-            cout << "Within the program to make it feel more personable.  When you close the program everything you entered is deleted.";
-            cout << endl << endl;
-            cout << "By TYPING 'y' you give your concent for " << programName << " to collect personal data.";
-            cout << endl << "If you do not concent then TYPE 'q' to quit the program immediately!" << endl;
+            std::cout << std::endl << "Greetings!!!  Thank You for chosing " << programName << " " << programVersion;
+            std::cout << std::endl << std::endl;
+            std::cout << "My Name Is Jake D and this is my C++ program.  I am learning C/C++ and I am using this program to apply" << std::endl;
+            std::cout << "what I am learning as I learn it." << std::endl;
+            std::cout << "The main part of this program is an interface I built to showcase to programs I have written as I advance in my studies" << std::endl;
+            std::cout << "The next screen will ask you for your first and last name as well as your birth date.  I intend yo use this information" << std::endl;
+            std::cout << "Within the program to make it feel more personable.  When you close the program everything you entered is deleted.";
+            std::cout << std::endl << std::endl;
+            std::cout << "By TYPING 'y' you give your concent for " << programName << " to collect personal data.";
+            std::cout << std::endl << "If you do not concent then TYPE 'q' to quit the program immediately!" << std::endl;
         }
-        else
-        {
+        else {
             invalidUserInputInterface();
         }
 
         userInputInterface();
-        switch (userInput)
-        {
-        case 'q': _Exit(0); break;
+        switch (userInput) {
+        case 'q': std::_Exit(0); break;
         case 'y': return; break;
-        default:
-        {
+        default: {
             validCommandCheck = false;
             welcomeScreenMethod();
             break;
@@ -93,33 +79,27 @@ private:
         }
     }
 
-
-    void moreInformationMethod()
-    {
-        if (validCommandCheck != false)
-        {
+    void moreInformationMethod() {
+        if (validCommandCheck != false) {
             drawHeaderInterface();
-            cout << endl << endl;
-            cout << "Simple Snake is the very first game I have written in c++ code.  I followed online instructions to build the game and then I modified the code to intagrate it into THIS program" << endl;
-            cout << "I have plans to modify the game to allow for different diffcaulty settings.";
-            cout << endl << endl;
-            cout << "Type 'r' to return to the Main Menu" << endl;
+            std::cout << std::endl << std::endl;
+            std::cout << "Simple Snake is the very first game I have written in c++ code.  I followed online instructions to build the game and then I modified the code to intagrate it into THIS program" << std::endl;
+            std::cout << "I have plans to modify the game to allow for different diffcaulty settings.";
+            std::cout << std::endl << std::endl;
+            std::cout << "Type 'r' to return to the Main Menu" << std::endl;
         }
-        else
-        {
+        else {
             invalidUserInputInterface();
         }
 
         userInputInterface();
-        switch (userInput)
-        {
+        switch (userInput) {
         case 'r':
         {
             return;
             break;
         }
-        default:
-        {
+        default: {
             validCommandCheck = false;
             moreInformationMethod();
             break;
@@ -128,21 +108,19 @@ private:
     }
 
 public:
-    void  welcomeScreenInterface() {
+    void welcomeScreenInterface() {
         welcomeScreenMethod();
     }
 
     void moreInformationInterface() {
         moreInformationMethod();
     }
-
 };
 
-
-class userID :public consolePrograms {
+class userID : public consolePrograms {
 private:
-    string firstName;
-    string lastName;
+    std::string firstName;
+    std::string lastName;
     int birthMonth;
     int birthDay;
     int birthYear;
@@ -150,19 +128,19 @@ private:
 
     void inputUserDataMethod() {
         system("cls");
-        cout << endl << "For the best user experience, please use true and accurate data for the following questions" << endl << endl;
-        cout << "What is your first name?: ";
-        cin >> firstName;
-        cout << "What is your last name?: ";
-        cin >> lastName;
-        cout << endl << "Next I am going to ask you for your birth date.  Please use number only!" << endl;
-        cout << "An example of a valid date is 11/12/1984" << endl << endl;
-        cout << "What is you birth MONTH?: ";
-        cin >> birthMonth;
-        cout << "What DAY where you born on?: ";
-        cin >> birthDay;
-        cout << "What YEAR where you born in?: ";
-        cin >> birthYear;
+        std::cout << std::endl << "For the best user experience, please use true and accurate data for the following questions" << std::endl << std::endl;
+        std::cout << "What is your first name?: ";
+        std::cin >> firstName;
+        std::cout << "What is your last name?: ";
+        std::cin >> lastName;
+        std::cout << std::endl << "Next I am going to ask you for your birth date.  Please use number only!" << std::endl;
+        std::cout << "An example of a valid date is 11/12/1984" << std::endl << std::endl;
+        std::cout << "What is you birth MONTH?: ";
+        std::cin >> birthMonth;
+        std::cout << "What DAY where you born on?: ";
+        std::cin >> birthDay;
+        std::cout << "What YEAR where you born in?: ";
+        std::cin >> birthYear;
         setAgeMethod();
         setUserNameMethod();
     }
@@ -181,17 +159,15 @@ private:
         userName = firstName;
     }
 
-
-    void outPutUserDataMethod()
-    {
+    void outPutUserDataMethod() {
         if (validCommandCheck != false) {
             drawHeaderInterface();
-            cout << endl << endl;
-            cout << "The Current User of this program is " << firstName << " " << lastName;
-            cout << endl << "You told me your Birth date was " << birthMonth << "/" << birthDay << "/" << birthYear;
-            cout << endl << "That means you will turn " << age << " this year";
-            cout << endl << endl;
-            cout << "Type 'r' to return to the Main Menu" << endl;
+            std::cout << std::endl << std::endl;
+            std::cout << "The Current User of this program is " << firstName << " " << lastName;
+            std::cout << std::endl << "You told me your Birth date was " << birthMonth << "/" << birthDay << "/" << birthYear;
+            std::cout << std::endl << "That means you will turn " << age << " this year";
+            std::cout << std::endl << std::endl;
+            std::cout << "Type 'r' to return to the Main Menu" << std::endl;
 
         }
         else {
@@ -221,38 +197,33 @@ public:
     }
 };
 
-class mainMenu :public userID {
+class mainMenu : public userID {
 protected:
-    void optionsMenuMethod()
-    {
+    void optionsMenuMethod() {
         system("color 02");
-        if (validCommandCheck != false)
-        {
+        if (validCommandCheck != false) {
             drawHeaderInterface();
-            cout << endl << endl;
-            cout << "The following is a list of available commands" << endl << endl;
-            cout << "Type '1' to Launch " << ssProgramName << " " << ssProgramVersion << endl;
-            cout << "Type 'i' for more information about the programs listed here" << endl;
-            cout << "Type 'u' to see your user information" << endl;
-            cout << "Type 'r' to Refesh the screen" << endl;
-            cout << "Type 'q' to Quit " << programName;
-            cout << endl << endl;
+            std::cout << std::endl << std::endl;
+            std::cout << "The following is a list of available commands" << std::endl << std::endl;
+            std::cout << "Type '1' to Launch " << ssProgramName << " " << ssProgramVersion << std::endl;
+            std::cout << "Type 'i' for more information about the programs listed here" << std::endl;
+            std::cout << "Type 'u' to see your user information" << std::endl;
+            std::cout << "Type 'r' to Refesh the screen" << std::endl;
+            std::cout << "Type 'q' to Quit " << programName;
+            std::cout << std::endl << std::endl;
         }
-        else
-        {
+        else {
             invalidUserInputInterface();
         }
 
         userInputInterface();
-        switch (userInput)
-        {
+        switch (userInput) {
         case '1': simpleSnake(); break;
         case 'i': moreInformationInterface(); break;
         case 'u': getUserDataInterface(); break;
         case 'r': validCommandCheck = true; optionsMenuMethod(); break;
-        case 'q': _Exit(0); break;
-        default:
-        {
+        case 'q': std::_Exit(0); break;
+        default: {
             validCommandCheck = false;
             optionsMenuMethod();
             break;
@@ -267,7 +238,7 @@ public:
     }
 };
 
-class program :private mainMenu {
+class program : private mainMenu {
 private:
     void runProgramMethod() {
         welcomeScreenInterface();
@@ -279,7 +250,6 @@ public:
         runProgramMethod();
     }
 };
-
 
 int main() {
     program OmniCodePropject;
