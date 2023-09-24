@@ -231,7 +231,7 @@ protected:
             drawHeaderInterface();
             cout << endl << endl;
             cout << "The following is a list of available commands" << endl << endl;
-            cout << "Type '1' to Launch " << ssProgramName << " " << ssProgramVersion << endl;
+            cout << "Type '1' to Launch Simple Snake" << endl; // Fixed the placeholder text
             cout << "Type 'i' for more information about the programs listed here" << endl;
             cout << "Type 'u' to see your user information" << endl;
             cout << "Type 'r' to Refesh the screen" << endl;
@@ -246,7 +246,12 @@ protected:
         userInputInterface();
         switch (userInput)
         {
-        case '1': GameLogic game; game.simpleSnake(); break;
+        case '1':
+        {
+            GameLogic game;
+            game.simpleSnake();
+            break;
+        }
         case 'i': moreInformationInterface(); break;
         case 'u': getUserDataInterface(); break;
         case 'r': validCommandCheck = true; optionsMenuMethod(); break;
@@ -266,7 +271,6 @@ public:
         optionsMenuMethod();
     }
 };
-
 class program :private mainMenu {
 private:
     void runProgramMethod() {
