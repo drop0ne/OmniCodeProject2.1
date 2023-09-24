@@ -1,5 +1,8 @@
 // OmniCodeProject2.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+//  I used to think this was a good program.  This codebase update is studid frustrating.
+//  At this point I think it would be faster to simple abandon this project and start over from scratch using better coding practicace from the start.
+
 #include "lib.h"
 
 
