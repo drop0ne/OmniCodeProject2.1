@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="OmniCodeProject2.1.cpp" />
+    <ClCompile Include="Simple Snake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SimpleSnake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
